@@ -31,7 +31,7 @@ public class FelineTest {
     }
 
     @Test
-    public void getKittensNoParamInvkoeGetKittensWith1() {
+    public void getKittensNoParamInvokeGetKittensWith1() {
         feline.getKittens();
         Mockito.verify(feline, Mockito.times(1)).getKittens(1);
     }
