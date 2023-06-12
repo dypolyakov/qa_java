@@ -22,7 +22,7 @@ public class LionTest {
     }
 
     @Test
-    public void getKittens(){
+    public void getKittens() {
         lion.getKittens();
         Mockito.verify(feline, Mockito.times(1)).getKittens();
     }
