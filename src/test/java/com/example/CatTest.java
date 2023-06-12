@@ -8,8 +8,6 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 
-import java.util.List;
-
 @RunWith(MockitoJUnitRunner.class)
 public class CatTest {
 
@@ -17,7 +15,6 @@ public class CatTest {
     private Feline feline;
 
     private Cat cat;
-
 
     @Before
     public void setUp() {
@@ -37,4 +34,5 @@ public class CatTest {
         Mockito.verify(feline, Mockito.times(1)).eatMeat();
 
     }
+
 }
