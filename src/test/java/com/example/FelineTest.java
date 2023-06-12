@@ -6,8 +6,6 @@ import org.mockito.Mockito;
 import org.mockito.Spy;
 import org.mockito.junit.MockitoJUnitRunner;
 
-import java.util.List;
-
 @RunWith(MockitoJUnitRunner.class)
 public class FelineTest {
 
@@ -15,13 +13,13 @@ public class FelineTest {
     private Feline feline;
 
     @Test
-    public void testEatMeat() throws Exception {
+    public void eatMeat() throws Exception {
         feline.eatMeat();
         Mockito.verify(feline, Mockito.times(1)).getFood("Хищник");
     }
 
     @Test
-    public void testGetFamily() {
+    public void getFamily() {
         String expected = "Кошачьи";
         String actual = feline.getFamily();
         Assert.assertEquals(expected, actual);
@@ -46,4 +44,5 @@ public class FelineTest {
         int actual = feline.getKittens(-1);
         Assert.assertEquals(expected, actual);
     }
+
 }

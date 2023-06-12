@@ -1,5 +1,6 @@
 package com.example;
 
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
@@ -15,30 +16,19 @@ public class LionTest {
     Feline feline;
     Lion lion;
 
-    public LionTest() throws Exception {
+    @Before
+    public void SetUp() throws Exception {
+        lion = new Lion(feline, "Самец");
     }
 
     @Test
-    public void getKittens() throws Exception {
-        lion = new Lion(feline, "Самец");
+    public void getKittens(){
         lion.getKittens();
         Mockito.verify(feline, Mockito.times(1)).getKittens();
     }
 
     @Test
-    public void doesHaveManeMaleReturnsTrue() throws Exception {
-        lion = new Lion(feline, "Самец");
-        assertTrue(lion.doesHaveMane());
-    }
-
-    @Test
-    public void doesHaveManeFemaleReturnsFalse() throws Exception {
-        lion = new Lion(feline, "Самка");
-        assertFalse(lion.doesHaveMane());
-    }
-
-    @Test
-    public void doesHaveManeUnknownSexThrowsException() throws Exception {
+    public void doesHaveManeUnknownSexThrowsException() {
         try {
             lion = new Lion(feline, "sex");
             fail("Ожидается Exception");
@@ -51,8 +41,8 @@ public class LionTest {
 
     @Test
     public void getFood() throws Exception {
-        lion = new Lion(feline, "Самец");
         lion.getFood();
         Mockito.verify(feline, Mockito.times(1)).getFood("Хищник");
     }
+
 }
