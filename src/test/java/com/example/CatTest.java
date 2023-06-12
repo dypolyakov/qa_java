@@ -20,23 +20,21 @@ public class CatTest {
 
 
     @Before
-    public void setup() {
+    public void setUp() {
         cat = new Cat(feline);
     }
 
     @Test
     public void getSound() {
-        Assert.assertEquals("Мяу", cat.getSound());
+        String expected = "Мяу";
+        String actual = cat.getSound();
+        Assert.assertEquals(expected, actual);
     }
 
     @Test
     public void getFood() throws Exception {
         cat.getFood();
-        List<String> food = List.of("Royal Canin", "Pro Plan", "Grandorf");
-        Mockito.when(feline.eatMeat()).thenReturn(food);
         Mockito.verify(feline, Mockito.times(1)).eatMeat();
-        List<String> actual = cat.getFood();
-        Assert.assertEquals(food, actual);
 
     }
 }

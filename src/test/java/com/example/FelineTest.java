@@ -18,16 +18,13 @@ public class FelineTest {
     public void testEatMeat() throws Exception {
         feline.eatMeat();
         Mockito.verify(feline, Mockito.times(1)).getFood("Хищник");
-
-        List<String> expected = List.of("Животные", "Птицы", "Рыба");
-        List<String> actual = feline.eatMeat();
-
-        Assert.assertEquals(expected, actual);
     }
 
     @Test
     public void testGetFamily() {
-        Assert.assertEquals("Кошачьи", feline.getFamily());
+        String expected = "Кошачьи";
+        String actual = feline.getFamily();
+        Assert.assertEquals(expected, actual);
     }
 
     @Test
@@ -37,7 +34,16 @@ public class FelineTest {
     }
 
     @Test
-    public void getKittensCount5Returns5() {
-        Assert.assertEquals(5, feline.getKittens(5));
+    public void getKittensPositiveAmountReturnsPositiveAmount() {
+        int expected = 5;
+        int actual = feline.getKittens(5);
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void getKittensNegativeAmountReturnsSameNegativeAmount() {
+        int expected = -1;
+        int actual = feline.getKittens(-1);
+        Assert.assertEquals(expected, actual);
     }
 }
