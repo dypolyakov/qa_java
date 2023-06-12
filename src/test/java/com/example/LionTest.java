@@ -15,7 +15,6 @@ public class LionTest {
     Feline feline;
     Lion lion;
 
-
     public LionTest() throws Exception {
     }
 
